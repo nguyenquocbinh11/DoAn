@@ -1,4 +1,4 @@
-﻿namespace QuanLyKinhDoanhNhaSach
+﻿namespace QuanLyKinhDoanhNhaThuoc
 {
     partial class HeThong
     {
@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnHethong = new System.Windows.Forms.ToolStripMenuItem();
             this.mnDanhmuc = new System.Windows.Forms.ToolStripMenuItem();
             this.mnThuoc = new System.Windows.Forms.ToolStripMenuItem();
-            this.heThongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.danhSachDuocSiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,13 +42,22 @@
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.heThongToolStripMenuItem,
+            this.mnHethong,
             this.mnDanhmuc});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mnHethong
+            // 
+            this.mnHethong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testToolStripMenuItem});
+            this.mnHethong.Name = "mnHethong";
+            this.mnHethong.Size = new System.Drawing.Size(106, 29);
+            this.mnHethong.Text = "He Thong";
+            this.mnHethong.Click += new System.EventHandler(this.heThongToolStripMenuItem_Click);
             // 
             // mnDanhmuc
             // 
@@ -65,17 +75,18 @@
             this.mnThuoc.Text = "Danh sach thuoc";
             this.mnThuoc.Click += new System.EventHandler(this.danhSachThuocToolStripMenuItem_Click);
             // 
-            // heThongToolStripMenuItem
-            // 
-            this.heThongToolStripMenuItem.Name = "heThongToolStripMenuItem";
-            this.heThongToolStripMenuItem.Size = new System.Drawing.Size(106, 29);
-            this.heThongToolStripMenuItem.Text = "He Thong";
-            // 
             // danhSachDuocSiToolStripMenuItem
             // 
             this.danhSachDuocSiToolStripMenuItem.Name = "danhSachDuocSiToolStripMenuItem";
             this.danhSachDuocSiToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.danhSachDuocSiToolStripMenuItem.Text = "Danh sach duoc si";
+            this.danhSachDuocSiToolStripMenuItem.Click += new System.EventHandler(this.danhSachDuocSiToolStripMenuItem_Click);
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.testToolStripMenuItem.Text = "Test";
             // 
             // HeThong
             // 
@@ -98,7 +109,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem mnDanhmuc;
         private System.Windows.Forms.ToolStripMenuItem mnThuoc;
-        private System.Windows.Forms.ToolStripMenuItem heThongToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnHethong;
         private System.Windows.Forms.ToolStripMenuItem danhSachDuocSiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }

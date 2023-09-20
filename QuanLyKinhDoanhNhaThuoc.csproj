@@ -6,12 +6,27 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4C3D8F6A-290F-455E-A9A0-985D0C99BF63}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>QuanLyKinhDoanhNhaSach</RootNamespace>
-    <AssemblyName>QuanLyKinhDoanhNhaSach</AssemblyName>
+    <RootNamespace>QuanLyKinhDoanhNhaThuoc</RootNamespace>
+    <AssemblyName>QuanLyKinhDoanhNhaThuoc</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,10 +47,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -49,11 +69,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DatabaseConection.cs" />
-    <Compile Include="Database\DataSet1.Designer.cs">
+    <Compile Include="Database\ADO_DATABASE.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DependentUpon>ADO_DATABASE.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ADO_DATABASE.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ADO_DATABASE.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ADO_DATABASE.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CT_CUNGCAP_THUOC.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\CT_XUAT_HD_THUOC.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\DatabaseConection.cs" />
+    <Compile Include="Database\HANG_THUOC.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\HOA_DON.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\KHACH_HANG.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\LOAI_THUOC.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\LO_THUOC.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\NHAN_VIEN.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\NHA_CUNG_CAP.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\sysdiagram.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\TAI_KHOAN.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\TAI_KHOAN_NV.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\THUOC.cs">
+      <DependentUpon>ADO_DATABASE.tt</DependentUpon>
     </Compile>
     <Compile Include="Form\LoginForm.cs">
       <SubType>Form</SubType>
@@ -66,6 +135,12 @@
     </Compile>
     <Compile Include="Form\HeThong.Designer.cs">
       <DependentUpon>HeThong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\NhanVien.Designer.cs">
+      <DependentUpon>NhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +156,12 @@
     <EmbeddedResource Include="Form\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\thuoc.resx">
+      <DependentUpon>thuoc.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -91,16 +172,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Database\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Database\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Database\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <EntityDeploy Include="Database\ADO_DATABASE.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ADO_DATABASE.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\ADO_DATABASE.edmx.diagram">
+      <DependentUpon>ADO_DATABASE.edmx</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,6 +209,30 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\ADO_DATABASE.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ADO_DATABASE.Context.cs</LastGenOutput>
+      <DependentUpon>ADO_DATABASE.edmx</DependentUpon>
+    </Content>
+    <Content Include="Database\ADO_DATABASE.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ADO_DATABASE.edmx</DependentUpon>
+      <LastGenOutput>ADO_DATABASE.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

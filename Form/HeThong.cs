@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyKinhDoanhNhaSach.Database;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,14 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyKinhDoanhNhaSach
+namespace QuanLyKinhDoanhNhaThuoc
 {
     public partial class HeThong : Form
     {
+        DatabaseConection databaseConection = new DatabaseConection();
         public HeThong()
         {
             InitializeComponent();
+            databaseConection.Connection();
         }
+
+       
 
         private void danhThuocToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -24,21 +29,27 @@ namespace QuanLyKinhDoanhNhaSach
 
         private void danhSachThuocToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            thuoc thuoc = new thuoc();  
-            thuoc.Show();
-            thuoc.Focus();
-            this.Hide();
+            
         }
 
-        private void An_Hien_Menu(Boolean hien)
+       
+
+        private void heThongToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mnDanhmuc.Visible = hien;
-            mnThuoc.Visible = hien;
+            
         }
 
         private void HeThong_Load(object sender, EventArgs e)
         {
+           
           
+        }
+
+        private void danhSachDuocSiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NhanVien nv = new NhanVien();
+            nv.Show();
+            this.Hide();
         }
     }
 }

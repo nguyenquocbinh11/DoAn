@@ -1,22 +1,26 @@
 ﻿using QuanLyKinhDoanhNhaSach.Database;
+using QuanLyKinhDoanhNhaThuoc.Database;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Metadata.Edm;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyKinhDoanhNhaSach
+namespace QuanLyKinhDoanhNhaThuoc
 {
     public partial class LoginForm : Form
     {
+        DatabaseConection databaseConection = new DatabaseConection();
         public LoginForm()
         {
             InitializeComponent();
-
+           
             try
             {
                 databaseConection.Connection();
@@ -24,8 +28,7 @@ namespace QuanLyKinhDoanhNhaSach
             catch { MessageBox.Show("Loi ket noi!"); }
         }
 
-        DatabaseConection databaseConection = new DatabaseConection();
-        public static string taikhoan, matkhau;
+        private static string quyenHan;
 
         private void txtTaikhoan_TextChanged(object sender, EventArgs e)
         {
@@ -49,27 +52,30 @@ namespace QuanLyKinhDoanhNhaSach
             }
         }
 
-        public bool checkDangNhap()
+       
+
+        public void checkDangNhap()
         {
             if(string.IsNullOrEmpty(txtTaikhoan.Text) || string.IsNullOrEmpty(txtMatkhau.Text))
             {
-                 MessageBox.Show("Vui long dien day du thong tin");
+                MessageBox.Show("Vui long dien du thong tin");
             }
-            return true;
+           
+          
         }
 
         private void btnDangnhap_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            dataTable.Load(databaseConection.DataReader(@"Select tai_khoan, mat_khau from TAI_KHOAN where tai_khoan= '" + txtTaikhoan.Text +"' and mat_khau='"+txtMatkhau.Text+"'"));
-           
-           
-            if(dataTable.Rows.Count>0)
+            DataTable dt = new DataTable();
+            dt.Load(databaseConection.DataReader(@"Select ma_taikhoan, tai_khoan, mat_khau, QuyenHan from TAI_KHOAN where tai_khoan= '" + txtTaikhoan.Text +"' and mat_khau='" + txtMatkhau.Text + "'"));  
+            if(dt.Rows.Count>0)
             {
+                quyenHan = dt.Rows[0]["QuyenHan"].ToString();
                 MessageBox.Show("Thanh cong");
                 HeThong heThong = new HeThong();
                 heThong.Show();
                 this.Hide();
+
             }
             else
             {
@@ -90,6 +96,11 @@ namespace QuanLyKinhDoanhNhaSach
 
         private void btnDangnhap_Click(object sender, EventArgs e, string v)
         {
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

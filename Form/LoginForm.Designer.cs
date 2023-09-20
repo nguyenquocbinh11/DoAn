@@ -1,4 +1,4 @@
-﻿namespace QuanLyKinhDoanhNhaSach
+﻿namespace QuanLyKinhDoanhNhaThuoc
 {
     partial class LoginForm
     {
@@ -30,11 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnLogin = new System.Windows.Forms.Panel();
+            this.pnThongbao = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnDangnhap = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pnThongbao = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.txtMatkhau = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -46,8 +46,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pnLogin.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.pnThongbao.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -79,6 +79,25 @@
             this.pnLogin.Size = new System.Drawing.Size(530, 399);
             this.pnLogin.TabIndex = 2;
             this.pnLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.pnLogin_Paint);
+            // 
+            // pnThongbao
+            // 
+            this.pnThongbao.Controls.Add(this.label3);
+            this.pnThongbao.Location = new System.Drawing.Point(156, 255);
+            this.pnThongbao.Name = "pnThongbao";
+            this.pnThongbao.Size = new System.Drawing.Size(328, 36);
+            this.pnThongbao.TabIndex = 2;
+            this.pnThongbao.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(303, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Vui long nhap lai tai khoan hoac mat khau";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnThoat
             // 
@@ -120,25 +139,6 @@
             this.panel4.Size = new System.Drawing.Size(237, 74);
             this.panel4.TabIndex = 4;
             // 
-            // pnThongbao
-            // 
-            this.pnThongbao.Controls.Add(this.label3);
-            this.pnThongbao.Location = new System.Drawing.Point(156, 255);
-            this.pnThongbao.Name = "pnThongbao";
-            this.pnThongbao.Size = new System.Drawing.Size(328, 36);
-            this.pnThongbao.TabIndex = 2;
-            this.pnThongbao.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(303, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Vui long nhap lai tai khoan hoac mat khau";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
             // txtMatkhau
             // 
             this.txtMatkhau.Location = new System.Drawing.Point(19, 9);
@@ -160,7 +160,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::QuanLyKinhDoanhNhaSach.Properties.Resources.pas__1_;
+            this.pictureBox2.Image = global::QuanLyKinhDoanhNhaThuoc.Properties.Resources.pas__1_;
             this.pictureBox2.Location = new System.Drawing.Point(0, 175);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(89, 84);
@@ -170,7 +170,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::QuanLyKinhDoanhNhaSach.Properties.Resources.username__1_;
+            this.pictureBox1.Image = global::QuanLyKinhDoanhNhaThuoc.Properties.Resources.username__1_;
             this.pictureBox1.Location = new System.Drawing.Point(3, 83);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(78, 74);
@@ -217,7 +217,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.BackgroundImage = global::QuanLyKinhDoanhNhaSach.Properties.Resources.imageedit_1_6618397657;
+            this.panel2.BackgroundImage = global::QuanLyKinhDoanhNhaThuoc.Properties.Resources.imageedit_1_6618397657;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Location = new System.Drawing.Point(12, 47);
             this.panel2.Name = "panel2";
@@ -244,12 +244,13 @@
             this.Controls.Add(this.panel1);
             this.Name = "LoginForm";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.pnLogin.ResumeLayout(false);
             this.pnLogin.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.pnThongbao.ResumeLayout(false);
             this.pnThongbao.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);

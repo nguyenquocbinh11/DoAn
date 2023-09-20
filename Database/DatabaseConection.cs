@@ -21,13 +21,19 @@ namespace QuanLyKinhDoanhNhaSach.Database
             conn.Open();
         }
       
-        // Fill du lieu
-        public void FillDulieu(string sql)
+
+        public DataSet FillDuLieu(string sql)
         {
-            DataSet dataSet = new DataSet();
+           DataSet ds = new DataSet();
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sql, conn);
-            sqlDataAdapter.Fill(dataSet);
-            sqlDataAdapter.Dispose();
+            DataTable dt = new DataTable();
+            sqlDataAdapter.Fill(ds);
+            sqlDataAdapter.Fill(dt);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Connection = conn;
+            cmd.CommandText = sql;
+            SqlDataReader reader = cmd.ExecuteReader();
+            return ds;
         }
 
         public void SaveData(string sql)
@@ -42,14 +48,13 @@ namespace QuanLyKinhDoanhNhaSach.Database
         public SqlDataReader DataReader(string sql)
         {
             SqlCommand cmd = new SqlCommand();
-            SqlDataReader dataReader;
+           
             cmd.Connection = conn;
             cmd.CommandText = sql;
             SqlDataReader sqlDataReader = cmd.ExecuteReader();
-            dataReader = sqlDataReader;
-            return dataReader;
+            return sqlDataReader;
         }
 
-        
+       
     }
 }
